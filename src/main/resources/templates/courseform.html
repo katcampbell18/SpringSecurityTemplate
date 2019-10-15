@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Add Course</title>
@@ -9,7 +9,7 @@
 
 <div th:replace="base :: nav"></div>
 
-<div class="container">
+<div class="container" sec:authorize="hasAuthority('ADMIN')">
 
     <form action="#" th:action="@{/process}" th:object="${course}"
           method="post">
